@@ -71,7 +71,9 @@ def fibo_more(x):
         next = p1 + p2
     return next
 
+
 print(fibo_more(13))
+
 
 def f_4852(x, y):
     if x == y:
@@ -83,3 +85,45 @@ def f_4852(x, y):
 
 
 # print(f_4852(6, 21))
+
+# nomer 4850 from Ivan with Love
+def fibo_prev(k):
+    p1 = 1
+    p2 = 1
+    next = 2
+    while next < k:
+        p1 = p2
+        p2 = next
+        next = p1 + p2
+    return p2
+
+
+def f_4850(x, y):
+    if x == y:
+        return 1
+    elif x > y:
+        return 0
+    elif x < y and fibo_prev(x) < y:
+        return f_4850(x + 1, y) + f_4850(x + 4, y) + f_4850(x + fibo_prev(x), y)
+
+
+# print(f_4850(2, 16))
+
+# nomer 4846
+def fact(k):
+    f = 1
+    for num in range(2, k + 1):
+        f *= num
+    return f
+
+
+def f_4846(x, y):
+    if x == y:
+        return 1
+    elif x > y or x == 12:
+        return 0
+    else:
+        return f_4846(x + 1, y) + f_4846(x + 4, y) + f_4846(fact(x + 1), y)
+
+
+print(f_4846(2, 24))
